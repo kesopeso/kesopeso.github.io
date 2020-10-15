@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+    gop_app:
+        image: node
+        container_name: gop_app
+        restart: always
+        stdin_open: true
+        ports:
+            - 3000:3000
+        volumes:
+            - ./app:/var/www/html
+        working_dir: /var/www/html
+        command: npm start
