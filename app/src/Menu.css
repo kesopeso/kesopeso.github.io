@@ -1,0 +1,44 @@
+.menu-wrapper {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 1em 2em;
+    background: rgba(120, 120, 120, .6);
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.header-logo {
+    float: left;
+    border-radius: 50%;
+    width: 3.5em;
+}
+
+.menu {
+    float: right;
+    display: flex;
+}
+
+    .menu__item {
+        font-weight: bold;
+        color: white;
+        display: inline-block;
+        padding: .5em 1em;
+        border-radius: .2em;
+        border: 2px solid transparent;
+        text-decoration: none;
+        background: rgba(255, 255, 255, .1);
+        transition: border-color .3s ease-in-out;
+    }
+
+    .menu__item--active, .menu__item:hover, .menu__item:focus {
+        border-color: white;
+        outline: none;
+    }
+
+    .menu__item + .menu__item {
+        margin-left: 1em;
+    }

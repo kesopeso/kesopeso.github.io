@@ -1,0 +1,17 @@
+.container__background {
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.container__background--primary {
+    background: rgb(102, 168, 255);
+}
+
+.container__background--secondary {
+    background: rgb(255, 90, 90);
+}

@@ -1,27 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Simulator from './Simulator';
+import Logos from './Logos';
+import Container from './Container';
+import Menu from './Menu';
+import Content from './Content';
+import { ContainerBackground } from './Container';
+
+export enum Pages {
+    SIMULATOR,
+    LOGOS,
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-          Idemo odma!
-        </a>
-      </header>
-    </div>
-  );
+    const [page, setPage] = useState<Pages>(Pages.SIMULATOR);
+
+    const pageElement = page === Pages.SIMULATOR ? <Simulator /> : <Logos />;
+    const backgroundClass = page === Pages.SIMULATOR ? ContainerBackground.PRIMARY : ContainerBackground.SECONDARY;
+
+    return (
+        <Container backgroundClass={backgroundClass}>
+            <Menu onChange={setPage} activePage={page} />
+            <Content>{pageElement}</Content>
+        </Container>
+    );
 }
 
 export default App;

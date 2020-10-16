@@ -1,0 +1,24 @@
+.logo-wrapper {
+    margin-bottom: 2em;
+}
+
+.logo {
+    width: 30em;
+    max-width: 100%;
+    margin: 0 auto;
+    background: white;
+    color: grey;
+    overflow: auto;
+    border-radius: .2em;
+}
+
+    .logo__title {
+        text-align: center;
+        padding: 1em;
+        margin: 0;
+    }
+
+    .logo__text {
+        margin: 3em 0;
+        text-align: center;
+    }
