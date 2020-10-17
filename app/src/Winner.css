@@ -1,0 +1,24 @@
+.winner {
+    position: absolute;
+    left: 50%;
+    top: 7em;
+    transform: translateX(-50%);
+    padding: 2em;
+    background: white;
+    border-radius: .2em;
+    border: 3px solid grey;
+    opacity: 0;
+    transition: opacity 3s ease-out;
+}
+
+.winner--visible {
+    opacity: 1;
+}
+
+.winner__announcement {
+    text-align: center;
+    color: grey;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+}

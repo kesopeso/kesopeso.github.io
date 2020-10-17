@@ -13,8 +13,26 @@
 
 .header-logo {
     float: left;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo__img {
     border-radius: 50%;
     width: 3.5em;
+}
+
+.header-logo__title {
+    margin: 0 0 0 1em;
+    line-height: 1;
+    font-size: 1.5em;
+    display: none;
+}
+
+@media screen and (min-width: 48em) {
+    .header-logo__title {
+        display: block;
+    }
 }
 
 .menu {

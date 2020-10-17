@@ -1,12 +1,11 @@
 import React from 'react';
 import Logo from './Logo';
-import './Logos.css';
+import logoOneSrc from './gop-logo-1.jpg';
 
 const Logos: React.FC = () => {
     return (
         <div className="logos">
-            <Logo />
-            <Logo />
+            <Logo src={logoOneSrc} description="My version of $GoP logo" />
             <Logo />
         </div>
     );

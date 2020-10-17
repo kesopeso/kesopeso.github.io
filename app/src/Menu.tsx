@@ -3,7 +3,6 @@ import { Pages } from './App';
 import './Menu.css';
 import logoSrc from './gop.jpg';
 import classNames from 'classnames';
-import { act } from 'react-dom/test-utils';
 
 export interface MenuItemProps {
     href: string;
@@ -38,12 +37,15 @@ export interface MenuProps {
 const Menu: React.FC<MenuProps> = ({ activePage, onChange }) => {
     return (
         <div className='menu-wrapper'>
-            <img
-                className='header-logo'
-                src={logoSrc}
-                title='$GoP - Game of Presidents'
-                alt='$GoP - Game of Presidents'
-            />
+            <div className='header-logo'>
+                <img
+                    className='header-logo__img'
+                    src={logoSrc}
+                    title='$GoP - Game of Presidents'
+                    alt='$GoP - Game of Presidents'
+                />
+                <h1 className="header-logo__title">$GoP - Game of Presidents</h1>
+            </div>
 
             <div className='menu'>
                 <MenuItem

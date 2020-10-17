@@ -1,0 +1,25 @@
+.vote-wrapper {
+    overflow: auto;
+}
+
+.vote {
+    margin-top: 2em;
+}
+
+.vote-label {
+    font-weight: bold;
+    margin-bottom: .5em;
+    display: block;
+}
+
+.vote-percent {
+    display: block;
+    width: 100%;
+}
+
+    .vote-percent__progress {
+        height: 1em;
+        background: black;
+        border-radius: .5em;
+        transition: width .1s linear;
+    }
