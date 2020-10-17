@@ -42,7 +42,7 @@ const Vote = React.forwardRef<HTMLDivElement, VoteProps>(({ label, percent }, vo
     return (
         <div className='vote-wrapper' ref={voteRef}>
             <div className='vote'>
-                <label className='vote-label'>{label}</label>
+                <label className='vote-label'>{label} ({percent}%)</label>
                 <div className='vote-percent'>
                     <div
                         ref={progressRef}
