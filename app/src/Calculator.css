@@ -4,7 +4,7 @@
     border-radius: 0.2em;
     padding: 2em;
     color: grey;
-    max-width: 40em;
+    max-width: 30em;
 }
 
 .calculator__reminder {
@@ -24,9 +24,40 @@
     margin-top: 2em;
 }
 
+.calculator__input {
+    border-radius: .2em;
+    font-size: 1em;
+    line-height: 1;
+    height: 3em;
+    background: white;
+    box-sizing: border-box;
+    display: block;
+    padding: 1em;
+    width: 100%;
+    border: none;
+    box-shadow: 0 0 0 1px inset grey;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.calculator__input--amount {
+    width: calc(100% - 8em);
+    float: left;
+}
+
+.calculator__input--currency {
+    width: 7em;
+    float: right;
+}
+
+.calculator__input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px inset grey;    
+}
+
 .calculator__label {
     display: block;
     font-weight: bold;
+    margin-bottom: .5em;
 }
 
 .calculator__amount {
@@ -34,15 +65,11 @@
     margin: 0;
 }
 
-.calculator__block:not(.calculator__block--half) {
+.calculator__block {
     margin-bottom: 1em;
+    overflow: hidden;
 }
 
-.calculator__block:not(.calculator__block--half):last-child {
+.calculator__block:last-child {
     margin-bottom: 0;
-}
-
-.calculator__block--half {
-    float: left;
-    width: 50%;
 }

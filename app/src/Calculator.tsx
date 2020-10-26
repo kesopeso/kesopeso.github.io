@@ -2,32 +2,40 @@ import React from 'react';
 import { useState } from 'react';
 import './Calculator.css';
 
+enum InvestmentCurrency {
+    ETH = 'eth',
+    GOP = 'gop',
+}
+
 const Calculator: React.FC = () => {
-    const [investment, setInvestment] = useState<number>();
-    const [multiplier, setMultiplier] = useState<number>();
+    const [investment, setInvestment] = useState<string>('');
+    const [investmentCurrency, setInvestmentCurrency] = useState<InvestmentCurrency>(InvestmentCurrency.ETH);
+    const [multiplier, setMultiplier] = useState<string>('');
 
-    const checkAndSetInvestment = (value: string) => {
-        const valueAsNumber = Number(value);
-        setInvestment(!isNaN(valueAsNumber) ? valueAsNumber : undefined);
-    };
+    const investmentAsNumber = Number(investment);
+    const multiplierAsNumber = Number(multiplier);
 
-    const checkAndSetMultiplier = (value: string) => {
-        const valueAsNumber = Number(value);
-        setMultiplier(!isNaN(valueAsNumber) ? valueAsNumber : undefined);
-    };
+    const isInvestmentNumberValid = !isNaN(investmentAsNumber) && investmentAsNumber > 0;
+    const isMultiplierNumberValid = !isNaN(multiplierAsNumber) && multiplierAsNumber > 0;
+    const displayResults = isInvestmentNumberValid && isMultiplierNumberValid;
 
-    let burnPercent = !!multiplier && !isNaN(multiplier) && multiplier >= 1 ? 40 / multiplier : 40;
+    let burnPercent = isMultiplierNumberValid && multiplierAsNumber >= 1 ? 40 / multiplierAsNumber : 40;
     burnPercent = burnPercent < 1 ? 1 : burnPercent > 40 ? 40 : burnPercent;
 
-    const gopRecieved = !!investment && !isNaN(investment) && investment > 0 ? investment * 15000 : 0;
-    const gopBurned = (burnPercent / 100) * gopRecieved;
-    const ethRecieved =
-        !!investment && !isNaN(investment) && investment > 0 && !!multiplier && !isNaN(multiplier) && multiplier > 0
-            ? (investment * multiplier * (100 - burnPercent)) / 100
+    const gopSold =
+        isInvestmentNumberValid && investmentAsNumber > 0
+            ? investmentCurrency === InvestmentCurrency.ETH
+                ? investmentAsNumber * 15000
+                : investmentAsNumber
             : 0;
-
-    const showData =
-        !!investment && !isNaN(investment) && investment > 0 && !!multiplier && !isNaN(multiplier) && multiplier > 0;
+    const gopBurned = (burnPercent / 100) * gopSold;
+    const ethRecieved =
+        isInvestmentNumberValid && investmentAsNumber > 0 && isMultiplierNumberValid && multiplierAsNumber > 0
+            ? ((investmentAsNumber / (investmentCurrency === InvestmentCurrency.ETH ? 1 : 15000)) *
+                  multiplierAsNumber *
+                  (100 - burnPercent)) /
+              100
+            : 0;
 
     return (
         <div className='calculator'>
@@ -36,27 +44,48 @@ const Calculator: React.FC = () => {
             </p>
 
             <div className='calculator__input-wrapper'>
-                <div className='calculator__block calculator__block--half'>
-                    <label className='calculator__label'>Investment in ETH</label>
-                    <input value={investment} onChange={(e) => checkAndSetInvestment(e.target.value)} />
+                <div className='calculator__block'>
+                    <label className='calculator__label'>How much do you want to sell? (1ETH = 15000 $GoP)</label>
+                    <input
+                        className='calculator__input calculator__input--amount'
+                        type='number'
+                        min='0'
+                        value={investment || ''}
+                        onChange={(e) => setInvestment(e.target.value)}
+                    />
+
+                    <select
+                        className='calculator__input calculator__input--currency'
+                        value={investmentCurrency}
+                        onChange={(e) => setInvestmentCurrency(e.target.value as InvestmentCurrency)}
+                    >
+                        <option value={InvestmentCurrency.ETH}>ETH</option>
+                        <option value={InvestmentCurrency.GOP}>$GoP</option>
+                    </select>
                 </div>
 
-                <div className='calculator__block calculator__block--half'>
+                <div className='calculator__block'>
                     <label className='calculator__label'>Multiplier</label>
-                    <input value={multiplier} onChange={(e) => checkAndSetMultiplier(e.target.value)} />
+                    <input
+                        className='calculator__input'
+                        type='number'
+                        min='0'
+                        value={multiplier || ''}
+                        onChange={(e) => setMultiplier(e.target.value)}
+                    />
                 </div>
             </div>
 
-            {showData && (
+            {displayResults && (
                 <div className='calculator__data'>
-                    <div className='calculator__block'>
-                        <label className='calculator__label'>$GoP recieved</label>
-                        <p className='calculator__amount'>{gopRecieved.toFixed(2)}</p>
-                    </div>
-
                     <div className='calculator__block'>
                         <label className='calculator__label'>Burn %</label>
                         <p className='calculator__amount'>{burnPercent.toFixed(2)}</p>
+                    </div>
+
+                    <div className='calculator__block'>
+                        <label className='calculator__label'>$GoP sold</label>
+                        <p className='calculator__amount'>{gopSold.toFixed(2)}</p>
                     </div>
 
                     <div className='calculator__block'>

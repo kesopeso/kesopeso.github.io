@@ -13,7 +13,7 @@
 
 .header-logo {
     float: left;
-    display: flex;
+    display: none;
     align-items: center;
 }
 
@@ -29,7 +29,13 @@
     display: none;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 26em) {
+    .header-logo {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 50em) {
     .header-logo__title {
         display: block;
     }
