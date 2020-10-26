@@ -90,12 +90,12 @@ const Calculator: React.FC = () => {
 
                     <div className='calculator__block'>
                         <label className='calculator__label'>$GoP burned on sell</label>
-                        <p className='calculator__amount'>{gopBurned.toFixed(2)} $GoP</p>
+                        <p className='calculator__amount'>{gopBurned.toFixed(2)}</p>
                     </div>
 
                     <div className='calculator__block'>
                         <label className='calculator__label'>ETH recieved on sell</label>
-                        <p className='calculator__amount'>{ethRecieved.toFixed(2)}</p>
+                        <p className='calculator__amount calculator__amount--bold'>{ethRecieved.toFixed(2)}</p>
                     </div>
                 </div>
             )}

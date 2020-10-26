@@ -65,6 +65,10 @@
     margin: 0;
 }
 
+.calculator__amount--bold {
+    font-weight: bold;
+}
+
 .calculator__block {
     margin-bottom: 1em;
     overflow: hidden;
