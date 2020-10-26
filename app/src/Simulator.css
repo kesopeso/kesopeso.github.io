@@ -14,10 +14,10 @@
     margin: 0 auto;
 }
 
-    .simulator-graph__title {
-        color: rgb(102, 168, 255);
-        margin: 0;
-    }
+.simulator-graph__title {
+    color: rgb(102, 168, 255);
+    margin: 0;
+}
 
 .simulator-invitation {
     display: flex;
@@ -30,35 +30,36 @@
     z-index: 1;
 }
 
-    .simulator-invitation__text {
-        text-align: center;
-        font-size: 1.5em;
-        font-weight: bold;
-        width: 20em;
-        max-width: 100%;
-        display: inline-block;
-    }
+.simulator-invitation__text {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 20em;
+    max-width: 100%;
+    display: inline-block;
+}
 
-    .simulator-invitation__button {
-        text-transform: uppercase;
-        font-weight: bold;
-        color: white;
-        display: inline-block;
-        padding: .5em 1em;
-        cursor: pointer;
-        border-radius: 0.2em;
-        border: 2px solid transparent;
-        text-decoration: none;
-        background: rgb(52, 103, 235);
-        transition: border-color 0.3s ease-in-out;
-        font-size: 1em;
-        outline: none;
-        line-height: 1.3;
-    }
+.simulator-invitation__button {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 0.2em;
+    border: 2px solid transparent;
+    text-decoration: none;
+    background: rgb(52, 103, 235);
+    transition: border-color 0.3s ease-in-out;
+    font-size: 1em;
+    outline: none;
+    line-height: 1.3;
+}
 
-    .simulator-invitation__button:hover, .simulator-invitation__button:focus {
-        border-color: white;
-    }
+.simulator-invitation__button:hover,
+.simulator-invitation__button:focus {
+    border-color: white;
+}
 
 .simulator-new-candidate {
     display: flex;
@@ -73,17 +74,17 @@
     z-index: 2;
     background: red;
     padding: 2em;
-    border-radius: .2em;
+    border-radius: 0.2em;
 }
 
-    .simulator-new-candidate__title {
-        margin: 0;
-        font-size: 1.5em;
-        font-weight: bold;
-        color: white;
-    }
+.simulator-new-candidate__title {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+}
 
-    .simulator-new-candidate__text {
-        font-weight: bold;
-        color: white;
-    }
+.simulator-new-candidate__text {
+    font-weight: bold;
+    color: white;
+}

@@ -44,10 +44,17 @@ const Menu: React.FC<MenuProps> = ({ activePage, onChange }) => {
                     title='$GoP - Game of Presidents'
                     alt='$GoP - Game of Presidents'
                 />
-                <h1 className="header-logo__title">$GoP - Game of Presidents</h1>
+                <h1 className='header-logo__title'>$GoP - Game of Presidents</h1>
             </div>
 
             <div className='menu'>
+                <MenuItem
+                    text='Calculator'
+                    href='#calculator'
+                    active={activePage === Pages.CALCULATOR}
+                    page={Pages.CALCULATOR}
+                    onChange={onChange}
+                />
                 <MenuItem
                     text='Simulator'
                     href='#simulator'
